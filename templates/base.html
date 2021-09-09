@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <title>{% block title %}EZ-EDU{% endblock %}</title>
+</head>
+
+<body>
+<div id="navbar">
+    <a id="homepage" href="/">Home</a>
+    {% if user.is_authenticated %}
+        <a id="profile" href="/profile">Profile</a>
+        <a id="logout" href="/logout">Exit</a>
+        <a id="panel" href="/user_panel">Panel</a>
+    {% else %}
+        <a id="register" href="/signup">Register</a>
+        <a id="login" href="/login">Login</a>
+    {% endif %}
+    <a id="contact_us" href="/contact_us">Contact US</a>
+</div>
+
+<div id="content">
+    {% block content %}
+        <div>سلام. به سامانه‌ی انتخاب واحد مجازی خوش آمدید.</div>
+    {% endblock %}
+</div>
+</body>
+</html>
