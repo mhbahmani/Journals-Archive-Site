@@ -10,7 +10,7 @@ def index(request):
     return HttpResponse("Hello, world")
 
 
-def login(request):
+def login_publisher_admin(request):
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
