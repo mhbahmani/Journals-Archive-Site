@@ -21,7 +21,7 @@ def login_publisher_admin(request):
         if user:
             login(request, user)
             # Redirect to a success page.
-            return redirect('accounts/upload')
+            return redirect('/upload')
         else:
             return render(request, 'login.html', {'form': form, 'error': True})
             # Return an 'invalid login' error message.
