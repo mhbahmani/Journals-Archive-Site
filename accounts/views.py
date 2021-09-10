@@ -2,7 +2,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from accounts.forms import LoginForm, UploadPublicationForm
 from accounts.models import Publication, Publisher
@@ -38,6 +38,7 @@ def upload_publication(request):
                 title=form.cleaned_data.get('title'),
                 pdf=request.FILES['pdf']
                 )
+            instance.save()
             return HttpResponse('The file is saved')
     else:
         form = UploadPublicationForm()
