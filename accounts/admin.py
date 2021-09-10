@@ -9,4 +9,8 @@ class PublisherAdmin(admin.ModelAdmin):
 
 @admin.register(Publication)
 class PublicationAdmin(admin.ModelAdmin):
+    list_display = ['title', 'show']
+    list_display_links = None
+    list_editable = ['show']
+
     pass
