@@ -11,9 +11,7 @@ class Publisher(models.Model):
     head = models.TextField(max_length=30)
 
     def __str__(self):
-        return f'username: {self.user.username},' \
-            f'title: {self.title},' \
-            f'head: {self.head}'
+        return self.title
 
 
 class Publication(models.Model):
