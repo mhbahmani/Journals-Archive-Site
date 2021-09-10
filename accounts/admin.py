@@ -13,5 +13,3 @@ class PublicationAdmin(admin.ModelAdmin):
     list_display_links = None
     list_editable = ['show']
     list_filter = ['publisher']
-
-    pass
