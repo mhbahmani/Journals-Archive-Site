@@ -1,6 +1,7 @@
 from django.http import HttpResponse, FileResponse
 from django.views.generic import ListView
 from django.shortcuts import render
+from django.db.models import Model
 
 from journals.models import Publication
 from accounts.models import Publisher
@@ -25,5 +26,8 @@ class PublishersView(ListView):
 
 
 def publication_serve_view(request, publisher, publication):
-    publication = Publication.objects.get(title=publication, publisher__title=publisher)
-    return FileResponse(publication.pdf)
+    try:
+        publication = Publication.objects.get(title=publication, publisher__title=publisher)
+        return FileResponse(publication.pdf)
+    except Model.MultipleObjectsReturned:
+        return render(request, 'message.html', {'message': 'خطایی در یافتن نشریه‌ی مورد نظر به وجود آمده‌است.'})
