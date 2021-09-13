@@ -1,0 +1,9 @@
+<h1>{{ publisher }}</h1>
+
+<ul>
+  {% for publication in object_list %}
+    <li>
+      {{ publication.title }}
+    </li>
+  {% endfor %}
+</ul>

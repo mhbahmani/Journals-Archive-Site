@@ -1,0 +1,9 @@
+<h1>Publishers</h1>
+
+<ul>
+  {% for publisher in object_list %}
+    <li>
+      {{ publisher.title }} ----> {{ publisher.head }}
+    </li>
+  {% endfor %}
+</ul>
