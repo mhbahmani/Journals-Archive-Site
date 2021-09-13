@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'accounts',
+    'journals',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'accounts/templates')
+            os.path.join(BASE_DIR, 'accounts/templates'),
+            os.path.join(BASE_DIR, 'journals/templates'),
             ],
         'APP_DIRS': True,
         'OPTIONS': {

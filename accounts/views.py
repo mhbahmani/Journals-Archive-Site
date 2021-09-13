@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 from accounts.forms import LoginForm, UploadPublicationForm
-from accounts.models import Publication, Publisher
+from accounts.models import Publisher
+from journals.models import Publication
 
 
 def index(request):
@@ -21,7 +22,7 @@ def login_publisher_admin(request):
         if user:
             login(request, user)
             # Redirect to a success page.
-            return redirect('/upload')
+            return redirect('accounts/upload')
         else:
             return render(request, 'login.html', {'form': form, 'error': True})
             # Return an 'invalid login' error message.
