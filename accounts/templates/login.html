@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Login</h2>
+    <h2>ورود</h2>
     {% if error == True %}
         <div id="error">Error</div>
     {% endif %}
     <form id="login_form" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button name="submit">Login</button>
+        <button name="submit">تایید</button>
     </form>
 {% endblock %}

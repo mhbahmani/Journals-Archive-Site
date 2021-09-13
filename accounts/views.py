@@ -46,12 +46,11 @@ def upload_publication(request):
                 pdf=request.FILES['pdf']
                 )
             instance.save()
-            return HttpResponse('The file is saved')
-    else:
-        form = UploadPublicationForm()
-        publications = Publication.objects.filter(publisher=request.user.publisher)
-        context = {
-            'form':form,
-            'publications': publications
-        }
+
+    form = UploadPublicationForm()
+    publications = Publication.objects.filter(publisher=request.user.publisher)
+    context = {
+        'form':form,
+        'publications': publications
+    }
     return render(request, 'upload.html', context)

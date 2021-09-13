@@ -10,7 +10,7 @@ class Publication(models.Model):
     show = models.BooleanField(default=True)
  
     class Meta:
-        ordering = ['title']
+        ordering = ['-id']
      
     def __str__(self):
         return f"{self.title}"

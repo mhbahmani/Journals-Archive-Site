@@ -6,11 +6,15 @@ from journals.models import Publication
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(max_length=32, widget=forms.PasswordInput)
+    username = forms.CharField(label='نام کاربری')
+    password = forms.CharField(label= 'رمز عبور', widget=forms.PasswordInput)
 
 
 class UploadPublicationForm(forms.ModelForm):
     class Meta:
         model = Publication
         fields = ('title', 'pdf',)
+        labels = {
+            'title': 'عنوان نشریه',
+            'pdf': 'فایل نشریه'
+        }
