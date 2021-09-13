@@ -1,3 +1,4 @@
+from django.http import HttpResponse, FileResponse
 from django.views.generic import ListView
 from django.shortcuts import render
 
@@ -21,3 +22,8 @@ class PublicationsView(ListView):
 class PublishersView(ListView):
     model = Publisher
     template_name = 'publishers_list.html'
+
+
+def publication_serve_view(request, publisher, publication):
+    publication = Publication.objects.get(title=publication, publisher__title=publisher)
+    return FileResponse(publication.pdf)

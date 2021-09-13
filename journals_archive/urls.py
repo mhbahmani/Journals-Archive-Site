@@ -27,4 +27,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('journals/', include('journals.urls')),
     path('admin/', admin.site.urls),
+    path('media/publications/<str:publisher>/<str:publication>', journals_views.publication_serve_view)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
