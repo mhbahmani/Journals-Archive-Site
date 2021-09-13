@@ -1,9 +1,9 @@
-<h1>Publishers</h1>
+<h1>نشریات</h1>
 
 <ul>
   {% for publisher in object_list %}
     <li>
-      {{ publisher.title }} ----> {{ publisher.head }}
+      <p>{{ publisher.title }}</p>
     </li>
   {% endfor %}
 </ul>
