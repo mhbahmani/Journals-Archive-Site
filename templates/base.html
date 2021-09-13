@@ -6,6 +6,9 @@
 
 <body>
 <div id="navbar">
+    <form action="{% url 'search_results' %}" method="get">
+        <input name="q" type="text" placeholder="جست‌وجو">
+    </form>
     <a id="homepage" href="/">خانه</a>
     {% if user.is_authenticated %}
         <a id="upload" href="/accounts/upload">بارگزاری</a>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>نتایج جست‌وجو:</h2>
+  
+  <ul>
+    {% for publisher in object_list %}
+      <li>
+        <a href="/journals/publications/{{ publisher.title }}">{{ publisher.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+journals/publications/نشریه%E2%80%8Cی%20داد

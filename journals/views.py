@@ -20,6 +20,16 @@ class PublicationsView(ListView):
         )
 
 
+class SearchResultsView(ListView):
+    model = Publication
+    template_name = 'search_results.html'
+
+    def get_queryset(self): # new
+        query = self.request.GET.get('q')
+        object_list = Publisher.objects.filter(title__icontains=query)
+        return object_list
+
+
 class PublishersView(ListView):
     model = Publisher
     template_name = 'publishers_list.html'
