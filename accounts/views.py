@@ -22,11 +22,17 @@ def login_publisher_admin(request):
         if user:
             login(request, user)
             # Redirect to a success page.
-            return redirect('accounts/upload')
+            return redirect('/accounts/upload')
         else:
             return render(request, 'login.html', {'form': form, 'error': True})
             # Return an 'invalid login' error message.
     return render(request, 'login.html', {'form': form})
+
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return redirect('/accounts/login')
 
 
 @login_required(redirect_field_name='/')
@@ -43,7 +49,9 @@ def upload_publication(request):
             return HttpResponse('The file is saved')
     else:
         form = UploadPublicationForm()
+        publications = Publication.objects.filter(publisher=request.user.publisher)
         context = {
             'form':form,
+            'publications': publications
         }
     return render(request, 'upload.html', context)
