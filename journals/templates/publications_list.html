@@ -6,7 +6,7 @@
   <ul>
     {% for publication in object_list %}
       <li>
-        {{ publication.title }}
+        <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}">{{ publication.title }}</a>
       </li>
     {% endfor %}
   </ul>
