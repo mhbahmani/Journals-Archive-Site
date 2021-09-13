@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+
+from journals import views as journals_views
+from journals_archive import settings
+
+
 
 urlpatterns = [
+    path('', journals_views.PublishersView.as_view()),
     path('accounts/', include('accounts.urls')),
     path('journals/', include('journals.urls')),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

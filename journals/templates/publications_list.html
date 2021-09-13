@@ -1,9 +1,13 @@
-<h1>{{ publisher }}</h1>
+{% extends 'base.html' %}
 
-<ul>
-  {% for publication in object_list %}
-    <li>
-      {{ publication.title }}
-    </li>
-  {% endfor %}
-</ul>
+{% block content %}
+  <h1>{{ publisher }}</h1>
+
+  <ul>
+    {% for publication in object_list %}
+      <li>
+        {{ publication.title }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
