@@ -24,7 +24,7 @@ class PublicationsView(ListView):
 class SearchResultsView(ListView):
     model = Publication
     template_name = 'search_results.html'
-    paginate_by = 9
+    paginate_by = 10
 
     def get_queryset(self): # new
         query = self.request.GET.get('q')
@@ -35,7 +35,7 @@ class SearchResultsView(ListView):
 class PublishersView(ListView):
     model = Publisher
     template_name = 'publishers_list.html'
-    paginate_by = 9
+    paginate_by = 10
 
 
 def publication_serve_view(request, publisher, publication):

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div style="display: flex; justify-content: space-between; align-items: center">
+    <div class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center">
         <h1>نتایج جست‌وجو:</h1>
         <div class="form-group has-search mb-0" style="max-width: 50%">
             <form action="{% url 'search_results' %}" method="get">
@@ -10,11 +10,11 @@
         </div>
     </div>
     <hr class="mt-0">
-    <div class="row" style="justify-content: space-between">
+    <div class="row" style="justify-content: center">
         {% for publisher in object_list %}
-            <div class="card m-2" style="width: 18rem;">
-                <img class="card-img-top"
-                     style="width:100%;max-width:300px;height:100%;max-height:300px"
+            <div class="card m-2" style="width: auto; min-width: 175px">
+                <img class="card-img-top mt-2"
+                     style="width:100%;max-width:150px;height:100%;max-height:150px; margin: auto"
                      src="{{ publisher.logo.url }}"
                      alt="publisher image">
                 <hr class="mb-0">
@@ -41,4 +41,5 @@
     {% if page_obj.has_next %}
         <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">صفحه آخر</a>
     {% endif %}
+    <br><br>
 {% endblock %}

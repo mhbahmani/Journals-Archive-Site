@@ -17,7 +17,8 @@
         </form>
     </div>
     <hr>
-    <div class="list-group">
+    <h2 class="mt-4 mb-4">نشریات شما:</h2>
+    <div class="list-group mb-5">
         {% for publication in publications %}
             <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}"
                class="list-group-item list-group-item-action">{{ publication.title }}</a>
