@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Sahel;
+    src: url('https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.eot');
+    src: url('https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.woff') format('woff'),
+    url('https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.ttf') format('truetype');
+    font-weight: normal;
+}
+
 html {
     height: 100%;
     box-sizing: border-box;
@@ -14,6 +23,7 @@ body {
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%;
+    font-family: Sahel, serif;
 }
 
 .footer {
