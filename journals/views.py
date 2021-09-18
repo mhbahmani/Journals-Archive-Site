@@ -13,10 +13,11 @@ class PublicationsView(ListView):
     
     def get(self, request, publisher):
         object_list = Publication.objects.filter(publisher__title__icontains=publisher)
+        publisher_object = Publisher.objects.get(title=publisher)
         return render(
             request,
             'publications_list.html',
-            {'publisher': publisher, 'object_list': object_list}
+            {'publisher': publisher_object, 'object_list': object_list}
         )
 
 

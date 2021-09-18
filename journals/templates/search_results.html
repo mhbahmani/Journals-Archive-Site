@@ -1,15 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>نتایج جست‌وجو:</h2>
-  
-  <ul>
-    {% for publisher in object_list %}
-      <li>
-        <a href="/journals/publications/{{ publisher.title }}">{{ publisher.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+    <div style="display: flex; justify-content: space-between; align-items: center">
+        <h1>نتایج جست‌وجو:</h1>
+        <div class="form-group has-search mb-0" style="max-width: 50%">
+            <form action="{% url 'search_results' %}" method="get">
+                <input name="q" type="text" class="form-control" placeholder="جست‌و‌جو">
+            </form>
+        </div>
+    </div>
+    <hr class="mt-0">
+    <div class="row" style="justify-content: space-between">
+        {% for publisher in object_list %}
+            <div class="card m-2" style="width: 18rem;">
+                <img class="card-img-top"
+                     style="width:100%;max-width:300px;height:100%;max-height:300px"
+                     src="{{ publisher.logo.url }}"
+                     alt="publisher image">
+                <hr class="mb-0">
+                <div class="card-body" style="text-align: center">
+                    <a class="card-text"
+                       href="/journals/publications/{{ publisher.title }}">{{ publisher.title }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
-
-journals/publications/نشریه%E2%80%8Cی%20داد

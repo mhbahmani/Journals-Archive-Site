@@ -44,13 +44,13 @@ def upload_publication(request):
                 publisher=request.user.publisher,
                 title=form.cleaned_data.get('title'),
                 pdf=request.FILES['pdf']
-                )
+            )
             instance.save()
 
     form = UploadPublicationForm()
     publications = Publication.objects.filter(publisher=request.user.publisher)
     context = {
-        'form':form,
+        'form': form,
         'publications': publications
     }
     return render(request, 'upload.html', context)

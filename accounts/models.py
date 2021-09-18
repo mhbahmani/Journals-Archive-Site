@@ -9,6 +9,7 @@ class Publisher(models.Model):
                                 )
     title = models.TextField(max_length=30)
     head = models.TextField(max_length=30)
+    logo = models.ImageField(default='default_logo.png', upload_to='logos')
 
     def __str__(self):
         return self.title
