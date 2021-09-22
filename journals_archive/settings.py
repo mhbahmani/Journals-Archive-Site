@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 from decouple import config
+from distutils.util import strtobool
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = strtobool(os.environ.get('DEBUG', 'true'))
 
 ALLOWED_HOSTS = os.environ.get('DOMAINS', '*').strip('"').split(',')
 
