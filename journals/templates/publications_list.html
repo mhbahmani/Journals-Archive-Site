@@ -5,17 +5,17 @@
         <h1>{{ publisher }}</h1>
         <a href="{{ link_to_this_page }}">
             <img src="{{ publisher.logo.url }}" class="rounded img-fluid" alt="publisher logo"
-                style="width:100%;max-width:200px;height:100%;max-height:200px">
+                 style="width:100%;max-width:200px;height:100%;max-height:200px">
         </a>
     </div>
     <hr>
-    <div>
+    <div class="mt-4 mb-4" style="display: flex; justify-content: space-between; align-items: center">
+        <h2>نشریات:</h2>
         <div class="form-group has-search mb-0" style="max-width: 50%">
             <form action="" method="get">
                 <input name="q" type="text" class="form-control" placeholder="جست‌و‌جو">
             </form>
         </div>
-    <h2 class="mt-4 mb-4">نشریات:</h2>
     </div>
     <div class="list-group mb-5">
         {% for publication in object_list %}
