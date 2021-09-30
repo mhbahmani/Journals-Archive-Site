@@ -11,13 +11,20 @@ class PublicationsView(ListView):
     model = Publication
     template_name = 'publications_list.html'
     
+    def get_queryset(self, publisher): # new
+        query = self.request.GET.get('q')
+        query = query if query else ''
+        object_list = Publication.objects.filter(publisher__title=publisher, title__icontains=query)
+        return object_list
+
     def get(self, request, publisher):
-        object_list = Publication.objects.filter(publisher__title__icontains=publisher)
+        page_link = request.get_full_path().split('?')[0]
+        object_list = self.get_queryset(publisher)
         publisher_object = Publisher.objects.get(title=publisher)
         return render(
             request,
             'publications_list.html',
-            {'publisher': publisher_object, 'object_list': object_list}
+            {'link_to_this_page': page_link, 'publisher': publisher_object, 'object_list': object_list}
         )
 
 
