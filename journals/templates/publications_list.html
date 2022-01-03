@@ -19,8 +19,8 @@
     </div>
     <div class="list-group mb-5">
         {% for publication in object_list %}
-            <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}"
-               class="list-group-item list-group-item-action">{{ publication.title }}</a>
+            <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}" target="_blank"
+               target="_blank"class="list-group-item list-group-item-action">{{ publication.title }}</a>
         {% endfor %}
     </div>
 {% endblock %}
