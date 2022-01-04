@@ -14,7 +14,7 @@ class PublicationsView(ListView):
     def get_queryset(self, publisher): # new
         query = self.request.GET.get('q')
         query = query if query else ''
-        object_list = Publication.objects.filter(publisher__title=publisher, title__icontains=query)
+        object_list = Publication.objects.filter(publisher__title=publisher, title__icontains=query).order_by("-title")
         return object_list
 
     def get(self, request, publisher):
