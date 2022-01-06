@@ -18,10 +18,22 @@
     </div>
     <hr>
     <h2 class="mt-4 mb-4">نشریات شما:</h2>
-    <div class="list-group mb-5">
+    <div class="row" style="justify-content: center">
         {% for publication in publications %}
+            <div class="card m-2" style="width: auto; min-width: 175px">
             <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}"
-               class="list-group-item list-group-item-action">{{ publication.title }}</a>
+               target="_blank" class="list-group-item list-group-item-action">
+                <img class="card-img-top mt-2"
+                     style="width:100%;max-width:150px;height:100%;max-height:150px; margin: auto"
+                     src="/media/covers{{ publication.get_image_name }}.jpg"
+                     alt="publisher image">
+            </a>
+                <hr class="mb-0">
+                <div class="card-body" style="text-align: center">
+                    <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}"
+                        target="_blank" class="list-group-item list-group-item-action">{{ publication.title }}</a>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

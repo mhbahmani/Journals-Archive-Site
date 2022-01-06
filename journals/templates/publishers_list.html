@@ -13,10 +13,12 @@
     <div class="row" style="justify-content: center">
         {% for publisher in object_list %}
             <div class="card m-2" style="width: auto; min-width: 175px">
+            <a href="/journals/publications/{{ publisher.title }}">
                 <img class="card-img-top mt-2"
                      style="width:100%;max-width:150px;height:100%;max-height:150px; margin: auto"
                      src="{{ publisher.logo.url }}"
                      alt="publisher image">
+            </a>
                 <hr class="mb-0">
                 <div class="card-body" style="text-align: center">
                     <a class="card-text"
