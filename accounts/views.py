@@ -52,7 +52,7 @@ def upload_publication(request):
 
             pathlib.Path('./media/covers').mkdir(parents=True, exist_ok=True)
             cover = convert_from_path(instance.pdf.path)[0]
-            cover.save('./media/covers'+instance.pdf.name[12:-4]+'.jpg', 'JPEG')
+            cover.save('./media/covers'+instance.pdf.name[12:-4]+'.jpg', 'JPEG', quality=25)
 
     form = UploadPublicationForm()
     publications = Publication.objects.filter(publisher=request.user.publisher)
