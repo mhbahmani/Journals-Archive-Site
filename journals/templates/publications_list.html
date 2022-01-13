@@ -31,7 +31,7 @@
                 <hr class="mb-0">
                 <div class="card-body" style="text-align: center">
                     <a href="/media/publications/{{ publication.publisher.title }}/{{ publication.title }}"
-                        target="_blank" class="list-group-item-action">{{ publication.title }}</a>
+                        target="_blank" title="{{ publication.title }}" class="list-group-item-action">{{ publication.get_title }}</a>
                 </div>
             </div>
         {% endfor %}

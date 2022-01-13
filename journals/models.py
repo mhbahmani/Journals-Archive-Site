@@ -12,6 +12,9 @@ class Publication(models.Model):
     def get_image_name(self):
         return self.pdf.name[12:-4]
 
+    def get_title(self):
+        return self.title[0:10] + '...'
+
     class Meta:
         ordering = ['-id']
      
